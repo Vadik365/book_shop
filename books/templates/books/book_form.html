@@ -1,10 +1,23 @@
-<h1>Book Form</h1>
+{% extends "books/base.html" %}
+
+{% block content %}
+
+<h2>Book Form</h2>
 
 <form method="post">
+
     {% csrf_token %}
+
     {{ form.as_p }}
 
-    <button type="submit">Save</button>
+    <button type="submit" class="btn btn-success">
+        Save
+    </button>
+
+    <a href="{% url 'books:book_list' %}" class="btn btn-secondary">
+        Cancel
+    </a>
+
 </form>
 
-<a href="{% url 'book_list' %}">Back</a>
+{% endblock %}

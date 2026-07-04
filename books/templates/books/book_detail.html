@@ -1,7 +1,27 @@
-<h1>{{ object.title }}</h1>
+{% extends "books/base.html" %}
 
-<p>Author: {{ object.author }}</p>
-<p>Price: {{ object.price }}</p>
-<p>Stock: {{ object.stock }}</p>
+{% block content %}
 
-<a href="{% url 'book_list' %}">Back</a>
+<h2>{{ object.title }}</h2>
+
+<ul class="list-group mb-3">
+
+    <li class="list-group-item">
+        <strong>Author:</strong> {{ object.author }}
+    </li>
+
+    <li class="list-group-item">
+        <strong>Price:</strong> {{ object.price }}
+    </li>
+
+    <li class="list-group-item">
+        <strong>Stock:</strong> {{ object.stock }}
+    </li>
+
+</ul>
+
+<a href="{% url 'books:book_list' %}" class="btn btn-secondary">
+    Back
+</a>
+
+{% endblock %}
