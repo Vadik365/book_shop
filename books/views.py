@@ -5,15 +5,6 @@ from .models import Book
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-class BookCreateView(LoginRequiredMixin, CreateView):
-    login_url = 'users:login'
-    
-class BookUpdateView(LoginRequiredMixin, UpdateView):
-    login_url = 'users:login'
-    
-class BookDeleteView(LoginRequiredMixin, DeleteView):
-    login_url = 'users:login'
-
 class BookListView(ListView):
     model = Book
     template_name = 'books/book_list.html'
@@ -27,23 +18,26 @@ class BookListView(ListView):
             queryset = queryset.filter(title__icontains=search)
         return queryset
     
-class BookDetailView(DetailView):
+class BookDetailView(LoginRequiredMixin, DetailView):
     model = Book
     template_name = 'books/book_detail.html'
     
-class BookCreateView(CreateView):
+class BookCreateView(LoginRequiredMixin, CreateView):
+    login_url = 'users:login'
     model = Book
     fields = '__all__'
     template_name = 'books/book_form.html'
-    success_url = reverse_lazy('book_list')
+    success_url = reverse_lazy('books:book_list')
     
-class BookUpdateView(UpdateView):
+class BookUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = 'users:login'
     model = Book
     fields = '__all__'
     template_name = 'books/book_form.html'
-    success_url = reverse_lazy('book_list')
+    success_url = reverse_lazy('books:book_list')
     
-class BookDeleteView(DeleteView):
+class BookDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = 'users:login'
     model = Book
     template_name = 'books/book_confirm_delete.html'
-    success_url = reverse_lazy('book_list')
+    success_url = reverse_lazy('books:book_list')
