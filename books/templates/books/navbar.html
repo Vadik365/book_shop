@@ -25,11 +25,12 @@
 
 </span>
 
-<a class="nav-link" href="{% url 'users:logout' %}">
-
-    Logout
-
-</a>
+<form action="{% url 'users:logout' %}" method="post" class="d-inline">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-link nav-link p-0 border-0 bg-transparent">
+        Logout
+    </button>
+</form>
 
 {% else %}
 
