@@ -1,0 +1,14 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /books/ HTTP/1.1" 200 16309
+"GET /books/1/ HTTP/1.1" 200 15868
+"GET /books/ HTTP/1.1" 200 16308
+"GET /books/create/ HTTP/1.1" 200 16946
+"POST /books/create/ HTTP/1.1" 302 0
+"GET /books/ HTTP/1.1" 200 16780
+"POST /users/logout/ HTTP/1.1" 302 0
+"GET /users/login/ HTTP/1.1" 200 15891
+"POST /users/login/ HTTP/1.1" 302 0
+Not Found: /accounts/profile/
+"GET /accounts/profile/ HTTP/1.1" 404 17070
+"GET /books/ HTTP/1.1" 200 16780
