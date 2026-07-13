@@ -26,7 +26,6 @@ class BookDetailView(DetailView):
 class BookCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     permission_required = 'books.add_book'
     login_url = 'users:login'
-    raise_exception = True
     model = Book
     fields = '__all__'
     template_name = 'books/book_form.html'
