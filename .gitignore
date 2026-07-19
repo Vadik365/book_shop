@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Django
+db.sqlite3
+debug.log
+staticfiles/
+media/
+
+# Env / secrets
+.env
+
+# IDE
+.idea/
+.vscode/
+
+# Docker
+postgres_data/

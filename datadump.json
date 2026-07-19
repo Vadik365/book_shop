@@ -1,0 +1,75 @@
+[
+{
+  "model": "books.category",
+  "pk": 1,
+  "fields": {
+    "name": "Horror",
+    "slug": "horror"
+  }
+},
+{
+  "model": "books.category",
+  "pk": 2,
+  "fields": {
+    "name": "Fantasy",
+    "slug": "fantasy"
+  }
+},
+{
+  "model": "books.category",
+  "pk": 3,
+  "fields": {
+    "name": "Documentary",
+    "slug": "documentary"
+  }
+},
+{
+  "model": "books.category",
+  "pk": 4,
+  "fields": {
+    "name": "History",
+    "slug": "history"
+  }
+},
+{
+  "model": "books.book",
+  "pk": 1,
+  "fields": {
+    "category": 2,
+    "title": "Harry Potter",
+    "author": "J.K.Rowling",
+    "price": "50.00",
+    "description": "Book about boy who alived",
+    "stock": 6
+  }
+},
+{
+  "model": "books.book",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "title": "The Shining",
+    "author": "Stephen King",
+    "price": "60.00",
+    "description": "A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.",
+    "stock": 3
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$4dDs9ntp7yVVBfGg2cqJkJ$0HERoxvPGilu7VhFJHzRBcj1EaN1TsGUOC2SL4bNy5w=",
+    "last_login": "2026-07-12T11:45:11.060Z",
+    "is_superuser": true,
+    "username": "vadikfit",
+    "first_name": "",
+    "last_name": "",
+    "email": "vadikfit@exmaple.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-07-12T10:50:16.800Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
