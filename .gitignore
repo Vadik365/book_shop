@@ -10,7 +10,7 @@ debug.log
 staticfiles/
 media/
 
-# Env / secrets
+# Env
 .env
 
 # IDE
