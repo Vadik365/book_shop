@@ -23,5 +23,11 @@
 <a href="{% url 'books:book_list' %}" class="btn btn-secondary">
     Back
 </a>
-
+<form method="post" action="{% url 'orders:cart_add' object.id %}" class="d-inline">
+    {% csrf_token %}
+    <input type="number" name="quantity" value="1" min="1" max="{{ object.stock }}" style="width: 70px;" class="d-inline-block">
+    <button type="submit" class="btn btn-success" {% if object.stock == 0 %}disabled{% endif %}>
+        Add to cart
+    </button>
+</form>
 {% endblock %}

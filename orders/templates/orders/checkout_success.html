@@ -1,0 +1,18 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+
+<div class="alert alert-success">
+    <h2>Дякуємо за замовлення!</h2>
+
+    {% if order %}
+        <p>Замовлення #{{ order.id }} оформлено. Статус: {{ order.get_status_display }}.</p>
+        <p>Лист-підтвердження надіслано на {{ order.user.email }}.</p>
+    {% else %}
+        <p>Оплату отримано, деталі замовлення обробляються.</p>
+    {% endif %}
+</div>
+
+<a href="{% url 'books:book_list' %}" class="btn btn-primary">До каталогу</a>
+
+{% endblock %}

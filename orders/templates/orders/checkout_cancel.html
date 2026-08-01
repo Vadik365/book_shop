@@ -1,0 +1,12 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+
+<div class="alert alert-warning">
+    <h2>Оплату скасовано</h2>
+    <p>Замовлення не завершено. Товари досі у вашому кошику.</p>
+</div>
+
+<a href="{% url 'orders:cart_detail' %}" class="btn btn-primary">Повернутись у кошик</a>
+
+{% endblock %}

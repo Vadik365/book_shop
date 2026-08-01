@@ -1,0 +1,62 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">Кошик</h1>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+{% if cart|length == 0 %}
+
+    <p>Кошик порожній.</p>
+    <a href="{% url 'books:book_list' %}" class="btn btn-primary">До каталогу</a>
+
+{% else %}
+
+<table class="table align-middle">
+    <thead>
+        <tr>
+            <th>Книга</th>
+            <th>Ціна</th>
+            <th>Кількість</th>
+            <th>Разом</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.book.title }}</td>
+            <td>{{ item.price }} USD</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price }} USD</td>
+            <td>
+                <form method="post" action="{% url 'orders:cart_remove' item.book.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Прибрати</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-between align-items-center">
+    <form method="post" action="{% url 'orders:cart_clear' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-secondary">Очистити кошик</button>
+    </form>
+
+    <div class="text-end">
+        <h4>Разом: {{ cart.get_total_price }} USD</h4>
+        <a href="{% url 'orders:checkout' %}" class="btn btn-success btn-lg">Оформити замовлення</a>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

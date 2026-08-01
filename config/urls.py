@@ -24,4 +24,5 @@ urlpatterns = [
     path('books/', include('books.urls')),
     path('users/', include('users.urls')),
     path('debug/', include('debug_toolbar.urls')),
+    path('orders/', include('orders.urls')),
 ]

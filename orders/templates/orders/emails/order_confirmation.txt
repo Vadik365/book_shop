@@ -1,0 +1,13 @@
+Вітаємо, {{ order.user.username }}!
+
+Дякуємо за замовлення #{{ order.id }} у Book Store.
+
+Склад замовлення:
+{% for item in items %}
+- {{ item.book.title }} x{{ item.quantity }} — {{ item.get_cost }} USD
+{% endfor %}
+
+Разом до сплати: {{ order.get_total_cost }} USD
+Статус замовлення: {{ order.get_status_display }}
+
+Дякуємо, що обираєте Book Store!
